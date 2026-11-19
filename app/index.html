@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover — GTA-style cover art from your own photos</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <aside class="panel">
+    <header>
+      <h1>Vice Cover</h1>
+      <p class="lede">Your photos and a caption, made into a GTA-style multi-panel poster. Everything stays on your machine.</p>
+    </header>
+
+    <label class="field">
+      <span>Photos</span>
+      <input id="photos" type="file" accept="image/*" multiple>
+      <small id="count">No photos yet — pick one or several.</small>
+    </label>
+
+    <label class="field">
+      <span>Caption</span>
+      <input id="caption" type="text" maxlength="48" value="Sunset Heist" autocomplete="off">
+    </label>
+
+    <div class="field">
+      <span>Colour grade</span>
+      <div id="grades" class="chips"></div>
+    </div>
+
+    <div class="field">
+      <span>Export size</span>
+      <div id="sizes" class="chips"></div>
+    </div>
+
+    <div class="field">
+      <span>Panel <b id="activeName">1</b> — drag the poster to pan, scroll to zoom</span>
+      <div class="row">
+        <button id="reset" type="button" class="ghost">Reset crop</button>
+        <button id="clear" type="button" class="ghost">Clear photos</button>
+      </div>
+    </div>
+
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </aside>
+
+  <section class="stage">
+    <canvas id="cover" width="1080" height="1350" aria-label="The cover art preview"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
